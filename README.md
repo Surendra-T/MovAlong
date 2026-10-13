@@ -23,26 +23,26 @@ The flowchart below details the offline-capable asynchronous queue and the local
 
 ```mermaid
 graph TD
-    subgraph Client [Browser / Frontend]
-        UI[React / Vite UI]
-        Recorder[HTML5 MediaRecorder]
-        IDB[(IndexedDB Audio Queue)]
-        Mermaid[Mermaid.js SVG Renderer]
+    subgraph Client ["Browser / Frontend"]
+        UI["React / Vite UI"]
+        Recorder["HTML5 MediaRecorder"]
+        IDB[("IndexedDB Audio Queue")]
+        Mermaid["Mermaid.js SVG Renderer"]
     end
 
-    subgraph Backend [FastAPI / Python 3.12]
-        Auth[JWT Authentication]
-        Upload[/api/rfcs/upload-audio]
-        Whisper[Whisper STT - CUDA]
+    subgraph Backend ["FastAPI / Python 3.12"]
+        Auth["JWT Authentication"]
+        Upload["/api/rfcs/upload-audio"]
+        Whisper["Whisper STT - CUDA"]
     end
 
-    subgraph Local Inference [Local Hardware]
-        Ollama[Ollama API :11434]
-        Gemma[Gemma 2 9B]
+    subgraph LocalInference ["Local Hardware"]
+        Ollama["Ollama API :11434"]
+        Gemma["Gemma 2 9B"]
     end
 
-    subgraph Cloud
-        MongoDB[(MongoDB Atlas)]
+    subgraph Cloud ["Cloud Storage"]
+        MongoDB[("MongoDB Atlas")]
     end
 
     UI -->|Record Offline| Recorder
